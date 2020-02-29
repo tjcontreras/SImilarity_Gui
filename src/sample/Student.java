@@ -19,7 +19,7 @@ public class Student {
         }
         public void setName(String studentName){
             int length;
-            length = studentName.length();
+                length = studentName.length();
             if(studentName.endsWith(".cpp")){
                 name = studentName.substring(0,length-4);
             }

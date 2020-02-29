@@ -137,11 +137,11 @@ public class Controller {
                 System.out.print(i+1 +". Name: "+records.get(i).getName());
                 System.out.println(" Score: "+ records.get(i).getScore());
             }
-            matrix.add(new Label("Top 5 List"),sLength+3,0);
+            matrix.add(new Label("Top 10 List"),sLength+3,0);
             matrix.add(new Label("Name"), sLength+3,1);
             matrix.add(new Label("Score"), sLength+4,1);
 
-            for(int i =0;i<5;i++){
+            for(int i =0;i<10;i++){
                 String strName = i+1 +". " +records.get(i).getName();
                 matrix.add(new Label(strName),sLength+3,i+2);
                 String strScore = new DecimalFormat("#.##").format(records.get(i).getScore());
@@ -324,6 +324,17 @@ public class Controller {
                 temp = Integer.toString(students[i].getUnOperands()+students[i].getUnOperators());
                 stackPane.getChildren().addAll(new Label(temp));
                 matrix.add(stackPane,6,i+1);
+            }
+
+            matrix.add(new Label("Volume"),7,0);
+            for(int i=0;i< students.length;i++){
+                StackPane stackPane = new StackPane();
+                double N = students[i].getSumOperands() + students[i].getSumOperators();
+                double n =  students[i].getUnOperands() + students[i].getUnOperators();
+                double v = N * Math.log(n)/ Math.log(2);
+                temp = new DecimalFormat("#.##").format(v);
+                stackPane.getChildren().addAll(new Label(temp));
+                matrix.add(stackPane,7,i+1);
             }
 
 
