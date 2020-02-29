@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane prefHeight="548.0" prefWidth="676.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="legPic" fitHeight="48.0" fitWidth="454.0" layoutX="222.0" layoutY="473.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/TJ/IdeaProjects/SImilarity_Gui/src/sample/Legend.PNG" />
+               </image>
+            </ImageView> 
+            <ScrollPane layoutX="112.0" layoutY="76.0" prefHeight="395.0" prefWidth="549.0">
+               <content>
+                  <GridPane fx:id="matrix" alignment="center" hgap="10" vgap="10" />
+               </content>
+            </ScrollPane>
+            <VBox alignment="CENTER" layoutX="2.0" layoutY="74.0" prefHeight="395.0" prefWidth="107.0" spacing="30.0">
+               <children>
+                  <Button fx:id="fileBtn" mnemonicParsing="false" onAction="#openFile" prefHeight="25.0" prefWidth="104.0" text="Select File Path" />
+                  <Button fx:id="compBtn" mnemonicParsing="false" onAction="#compare" prefHeight="25.0" prefWidth="105.0" text="Compare" />
+                  <Button fx:id="metricsBtn" mnemonicParsing="false" onAction="#metrics" prefHeight="25.0" prefWidth="109.0" text="Software Metrics" />
+                  <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="117.0" text="Exit" />
+               </children>
+            </VBox>
+            <ImageView fitHeight="350.0" fitWidth="676.0" layoutY="-186.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/TJ/IdeaProjects/SImilarity_Gui/src/sample/images.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="fileLabel" alignment="CENTER" layoutX="195.0" layoutY="527.0" prefHeight="17.0" prefWidth="398.0" text="No files Selected" wrapText="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
