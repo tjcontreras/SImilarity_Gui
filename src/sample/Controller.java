@@ -52,14 +52,14 @@ public class Controller {
         stage.close();
     }
 
-    public void compare() throws IOException {
+    public void compare() {
         if(fileLoc==null) System.out.println("x");
         else {
             matrix.getChildren().clear();
             File root = new File(fileLoc);
             File[] list = root.listFiles();
-            System.out.println(list);
-            if (list == null) {
+            assert list != null;
+            if (list.length == 0) {
                 System.out.println("File is empty");
                 return;
             }
@@ -357,7 +357,6 @@ public class Controller {
             }
             System.out.println(f.getAbsolutePath());
 //            student.setMetrics(f.getAbsolutePath());
-            return;
         }
         else{
             for ( File f : list ) {
