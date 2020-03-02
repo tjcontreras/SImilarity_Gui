@@ -7,6 +7,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Student {
+
+    /*Student Class
+     * This contains all the main function of the program
+     * name - String variable that contains all the absolute file path of the folder
+     * token - array list integer that stores all the converted tokens of the source file
+     * unOperators - contains the number of unique operators for each file
+     * sumOperators - contains the total number of operators used
+     * unOperands - contains all the number of unique operands for each file
+     * sumOperands - contains the total number of operands used
+     * */
+
         private String name;//name of the main folder of the student
         private ArrayList<Integer> tokens = new ArrayList<>(); //stores the tokenized source code
         private int unOperators = 0;

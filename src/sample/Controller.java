@@ -11,8 +11,6 @@ import javafx.scene.text.Font;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
-
-import java.awt.datatransfer.FlavorEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -36,6 +34,9 @@ public class Controller {
     }
 
     public void openFile(){
+
+        //File Selector Dialogue Box that appears when the user selected the Select File Path Button
+
         Stage stage1 = new Stage();
         DirectoryChooser dirChooser = new DirectoryChooser();
         dirChooser.setTitle("Select a folder");
@@ -54,18 +55,23 @@ public class Controller {
 
     public void compare() {
         if(fileLoc==null){
-            System.out.println("No file is selected");
+            System.out.println("No file selected");
         }
         else {
             matrix.getChildren().clear();
             File root = new File(fileLoc);
             File[] list = root.listFiles();
             assert list != null;
+
+            //if file is empty then return
             if (list.length == 0) {
                 fileLabel.setText("File Selected is Empty!");
                 System.out.println("File is empty");
                 return;
             }
+
+             //Creates a new Class of Student and Record
+
 
             Student[] students = new Student[list.length];
             ArrayList<Record> records = new ArrayList<>();
@@ -340,10 +346,7 @@ public class Controller {
                 stackPane.getChildren().addAll(new Label(temp));
                 matrix.add(stackPane,7,i+1);
             }
-
-
         }
-
     }
 
     public  void currMetrics(String path, Student student) throws IOException {
