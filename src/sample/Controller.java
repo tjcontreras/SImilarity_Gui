@@ -38,7 +38,7 @@ public class Controller {
     public void openFile(){
         Stage stage1 = new Stage();
         DirectoryChooser dirChooser = new DirectoryChooser();
-        dirChooser.setTitle("Select a Folder");
+        dirChooser.setTitle("Select a folder");
         File dirFile = dirChooser.showDialog(stage1);
         if(dirFile!=null){
             fileLabel.setText(dirFile.getAbsolutePath() + " selected");
@@ -53,13 +53,16 @@ public class Controller {
     }
 
     public void compare() {
-        if(fileLoc==null) System.out.println("x");
+        if(fileLoc==null){
+            System.out.println("No file is selected");
+        }
         else {
             matrix.getChildren().clear();
             File root = new File(fileLoc);
             File[] list = root.listFiles();
             assert list != null;
             if (list.length == 0) {
+                fileLabel.setText("File Selected is Empty!");
                 System.out.println("File is empty");
                 return;
             }
@@ -94,8 +97,6 @@ public class Controller {
                     stackPane.getChildren().addAll(recScore(score),scoreLabel);
                     matrix.add(stackPane, i, k);
                 }
-//                matrix.getColumnConstraints().add(new ColumnConstraints(50)); // column 0 is 50 wide
-//                matrix.getRowConstraints().add(new RowConstraints(25)); //column is 25 long
             }
 
             for (int i = 0; i < sLength; i++) {
@@ -128,7 +129,7 @@ public class Controller {
                 j++;
             }
             for(int i=0;i<3;i++){
-                System.out.print(i+". Name: "+records.get(i).getName());
+                System.out.print(i+"  Name: "+records.get(i).getName());
                 System.out.println("   Score: "+ records.get(i).getScore());
             }
 
@@ -194,8 +195,7 @@ public class Controller {
                     find( f.getAbsolutePath(),student );
                 }
                 else {
-                    if(f.getName().endsWith(".java") || f.getName().endsWith(".cpp"));
-                    student.addToken(f.getAbsolutePath());
+                    if(f.getName().endsWith(".java") || f.getName().endsWith(".cpp")) student.addToken(f.getAbsolutePath());
                 }
             }
         }
@@ -240,15 +240,19 @@ public class Controller {
     }
 
     public void metrics() {
-        if (fileLoc == null) System.out.println("y");
+        if (fileLoc == null) System.out.println("No file selected");
         else {
             matrix.getChildren().removeAll();
             matrix.getChildren().clear();
             File root = new File(fileLoc);
             File[] list = root.listFiles();
-            System.out.println(list);
 
             if (list == null) {
+                System.out.println("File is empty");
+                return;
+            }
+            if (list.length == 0) {
+                fileLabel.setText("File Selected is Empty!");
                 System.out.println("File is empty");
                 return;
             }
@@ -356,7 +360,6 @@ public class Controller {
                 student.setMetrics(f.getAbsolutePath());
             }
             System.out.println(f.getAbsolutePath());
-//            student.setMetrics(f.getAbsolutePath());
         }
         else{
             for ( File f : list ) {
