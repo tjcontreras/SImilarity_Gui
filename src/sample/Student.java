@@ -16,6 +16,13 @@ public class Student {
      * sumOperators - contains the total number of operators used
      * unOperands - contains all the number of unique operands for each file
      * sumOperands - contains the total number of operands used
+     * RULES FOR TOKENIZE OF THE CODE
+     * Number - 0 (Ex. 1,2,3,4,5...)
+     * String Literal - 1 (Ex. "Hello World" , "C://")
+     * Keyword - 2 (Ex. import, if, while )
+     * Identifier - 3 (Ex. i, x, nameStudent)
+     * Operator - 4 (Ex. +,-,/)
+     * Separator - 5 (Ex. [], {}, ',' , ;)
      * */
 
         private String name;//name of the main folder of the student
@@ -41,11 +48,6 @@ public class Student {
         }
 
     public void addToken(String filePath) throws IOException {
-        /*Author: TJ Contreras
-         *This code is intended for Source code to tokenize
-         *
-         */
-
         String reserveWords[] = {"abstract", "assert", "boolean", "break", "byte", "case",
                 "catch", "char", "class", "const", "continue", "default",
                 "double", "do", "else", "enum", "extends", "false",
